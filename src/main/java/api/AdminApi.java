@@ -10,8 +10,6 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +21,7 @@ public class AdminApi {
 	@Autowired
 	SpatialDatabaseService spatialService;
 
-	public String uploadGTFSFRorRegion(
-			MultipartFile file) {
+	public String uploadGTFSFRorRegion() {
 
 	    File newFile = new File("./tmp/Upload__HVV_Rohdaten_GTFS_Fpl_20170810.zip");
         String regionId = "55";
@@ -44,6 +41,6 @@ public class AdminApi {
 
     public static void main(String[] args) {
         AdminApi aa = new AdminApi();
-        aa.uploadGTFSFRorRegion(null);
+        aa.uploadGTFSFRorRegion();
     }
 }
